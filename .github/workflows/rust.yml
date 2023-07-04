@@ -17,9 +17,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Install libpq
-      run: apt-get install libpq5=13.4-1
+      run: sudo apt-get install libpq5=13.4-1
     - name: Install libpq-dev
-      run: apt-get install libpq-dev
+      run: sudo apt-get install libpq-dev
     - name: Build
       run: cargo build --verbose
     - name: Run tests
