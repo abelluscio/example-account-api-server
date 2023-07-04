@@ -1,0 +1,10 @@
+version: "3"
+services:
+  db:
+    image: postgres:15.3-alpine3.18
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "svc"
+      POSTGRES_PASSWORD: "testPassw0rd"
+      POSTGRES_DB: "accounts"

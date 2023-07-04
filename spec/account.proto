@@ -1,0 +1,98 @@
+syntax="proto3";
+
+package accounts;
+
+service AccountAPI {
+  rpc Create(CreateRequest) returns (CreateReply);
+  rpc FindOne(FindOneRequest) returns (FindOneReply);
+  rpc FindMany(FindManyRequest) returns (FindManyReply);
+  rpc UpdateOne(UpdateOneRequest) returns (UpdateOneReply);
+  rpc DeleteOne(DeleteOneRequest) returns (DeleteOneReply);
+  rpc DeleteMany(DeleteManyRequest) returns (DeleteManyReply);
+}
+
+/*
+  Entities
+  These messages map to the underlying database entity.
+*/
+message Account {
+  string id = 10; // platform account ID
+  string email = 20;
+  string first_name = 30;
+  string last_name = 40;
+  string middle_initial = 50;
+  string created_at = 70;
+  string updated_at = 80;
+  bool frozen = 90;
+}
+
+/*
+  Inputs
+  These messages are used as inputs to create or update an Account.
+*/
+message AccountInput {
+  string email = 20;
+  string first_name = 30;
+  string last_name = 40;
+  string middle_initial = 50;
+}
+
+/*
+  Requests
+  These messages are incoming data from a client.
+*/
+message CreateRequest {
+  AccountInput input = 10;
+}
+
+message FindOneRequest {
+  AccountInput query = 10;
+}
+
+message FindManyRequest {
+  repeated AccountInput query = 10;
+}
+
+message UpdateOneRequest {
+  string id = 10;
+  AccountInput updated = 20;
+}
+
+message DeleteOneRequest {
+  string id = 10;
+}
+
+message DeleteManyRequest {
+  repeated string ids = 10;
+}
+
+/*
+  Replies
+  These messages are outgoing data from the server.
+*/
+message CreateReply {
+  Account created = 10;
+}
+
+message FindOneReply {
+  Account result = 10;
+}
+
+message FindManyReply {
+  repeated Account results = 10;
+}
+
+message UpdateOneReply {
+  string id = 10;
+  Account before = 20;
+  Account after = 30;
+}
+
+message DeleteOneReply {
+  string id = 10;
+  bool success = 20;
+}
+
+message DeleteManyReply {
+  repeated DeleteOneReply results = 10;
+}
