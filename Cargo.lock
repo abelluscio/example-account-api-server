@@ -3,10 +3,6 @@
 version = 3
 
 [[package]]
-name = "account-api-client"
-version = "0.1.0"
-
-[[package]]
 name = "addr2line"
 version = "0.20.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -258,7 +254,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "examine-account-api-server"
+name = "example-account-api-client"
+version = "0.1.0"
+
+[[package]]
+name = "example-account-api-server"
 version = "0.1.0"
 dependencies = [
  "chrono",
