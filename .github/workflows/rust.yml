@@ -16,8 +16,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Update apt repository
+      run: sudo apt-get update
     - name: Install libpq
-      run: sudo apt-get install libpq5=13.4-1
+      run: sudo apt-get install libpq5
     - name: Install libpq-dev
       run: sudo apt-get install libpq-dev
     - name: Build
