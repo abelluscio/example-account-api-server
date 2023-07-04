@@ -19,9 +19,11 @@ jobs:
     - name: Update apt repository
       run: sudo apt-get update
     - name: Install libpq
-      run: sudo apt-get install libpq5
+      run: sudo apt-get install -y libpq5
     - name: Install libpq-dev
-      run: sudo apt-get install libpq-dev
+      run: sudo apt-get install -y libpq-dev
+    - name: Install Protobuf Compiler
+      run: sudo apt install -y protobuf-compiler
     - name: Build
       run: cargo build --verbose
     - name: Run tests
